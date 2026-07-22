@@ -83,6 +83,7 @@
 }
 
 * { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
   font-family: "Inter", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
@@ -104,9 +105,10 @@ h1 {
 .global-nav {
   background: #000; color: #fff; height: 40px; display: flex; align-items: center;
   justify-content: space-between; padding: 0 16px; font-size: 12px; letter-spacing: -0.12px;
-  margin: -28px -20px 20px; border-radius: 0;
+  margin: -28px -20px 20px; border-radius: 0; overflow: hidden;
 }
-.global-nav .brand { font-weight: 600; }
+.global-nav .brand { font-weight: 600; flex: none; }
+.global-nav span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; margin-left: 12px; }
 
 .select-shell {
   background: var(--card-bg); border: 1px solid var(--border); border-radius: 9999px;
@@ -115,7 +117,7 @@ h1 {
 }
 .select-shell select {
   border: none; background: transparent; font: inherit; color: var(--text);
-  flex: 1; min-width: 0; width: 100%;
+  flex: 1 1 0%; min-width: 0; width: 100%;
 }
 
 .card {
